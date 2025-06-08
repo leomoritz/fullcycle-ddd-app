@@ -1,3 +1,5 @@
+import Address from "./address";
+
 /**
  * Entidade Customer (contexto de negócio e não de persistência)
  * Representa um cliente com propriedades de identificação, nome e endereço.
@@ -11,13 +13,12 @@
 class Customer {
   _id: string;
   _name: string;
-  _address: string;
+  _address!: Address;
   _active: boolean = false;
 
-  constructor(id: string, name: string, address: string) {
+  constructor(id: string, name: string) {
     this._id = id;
     this._name = name;
-    this._address = address;
     this.validate();
   }
 
@@ -28,9 +29,6 @@ class Customer {
     if (!this._name) {
       throw new Error('Name is required');
     }
-    if (!this._address) {
-      throw new Error('Address is required');
-    }
   }
 
   changeName(name: string): void {
@@ -38,14 +36,17 @@ class Customer {
     this.validate();
   }
 
-  changeAddress(address: string): void {
+  changeAddress(address: Address): void {
+    if (address === undefined || address === null) {
+      throw new Error('Invalid address');
+    }
+
     this._address = address;
-    this.validate();
   }
 
   activate(): void {
-    if (this._address.length === 0) {
-        throw new Error('Cannot activate customer without address');
+    if (this._address === undefined || this._address === null) {
+      throw new Error('Cannot activate customer without address');
     }
     this._active = true;
   }
