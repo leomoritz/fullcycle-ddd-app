@@ -1,5 +1,5 @@
 /**
- * Entidade Customer
+ * Entidade Customer (contexto de negócio e não de persistência)
  * Representa um cliente com propriedades de identificação, nome e endereço.
  * Fornece métodos para acessar e modificar essas propriedades.
  * Trata-se de uma entidade anêmica, onde a classe só carrega dados e o identificador é o único atributo que define a identidade do cliente.
@@ -54,3 +54,14 @@ class Customer {
     this._active = false;
   }
 }
+
+/**
+ * Complexidade de negócio
+ * Domain
+ *  - Entity
+ *   -- customer.ts (regra de negócio)
+ * Complexidade acidental
+ * Infrastructure
+ *  - Entity / Model
+ *   -- customer.ts (persistência, possui get e set para os atributos)
+ */
