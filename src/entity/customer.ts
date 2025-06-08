@@ -10,7 +10,7 @@ import Address from "./address";
  * @property {string} _name - Nome do cliente.
  * @property {string} _address - Endereço do cliente.
  */
-class Customer {
+export default class Customer {
   _id: string;
   _name: string;
   _address!: Address;
