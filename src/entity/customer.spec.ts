@@ -78,4 +78,22 @@ describe("Customer unit tests", () => {
         expect(customer.isActive).toBe(false);
     });
 
+    it("should add reward points", () => {
+        const customer = new Customer("92b9630c-368c-4221-98b7-3047872052dd", "John Doe");
+
+        customer.addRewardPoints(100);
+        expect(customer.rewardPoints).toBe(100);
+
+        customer.addRewardPoints(50);
+        expect(customer.rewardPoints).toBe(150);
+    });
+
+    it("should throw error when adding negative reward points", () => {
+        const customer = new Customer("92b9630c-368c-4221-98b7-3047872052dd", "John Doe");
+
+        expect(() => {
+            customer.addRewardPoints(-50);
+        }).toThrow("Reward points must be greater than zero");
+    });
+
 });
