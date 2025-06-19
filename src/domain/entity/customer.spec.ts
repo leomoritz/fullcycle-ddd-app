@@ -32,7 +32,7 @@ describe("Customer unit tests", () => {
 
     it("should change address", () => {
         const customer = new Customer("92b9630c-368c-4221-98b7-3047872052dd", "John Doe");
-        const address = new Address("Main St", 123, "Anytown", "CA", "12345" );
+        const address = new Address("Main St", 123, "Anytown", "12345" );
 
         customer.changeAddress(address);
 
@@ -55,7 +55,7 @@ describe("Customer unit tests", () => {
 
     it("should activate customer", () => {
         const customer = new Customer("92b9630c-368c-4221-98b7-3047872052dd", "John Doe");
-        const address = new Address("Main St", 123, "Anytown", "CA", "12345" );
+        const address = new Address("Main St", 123, "Anytown", "12345" );
         customer.changeAddress(address);
 
         customer.activate();
