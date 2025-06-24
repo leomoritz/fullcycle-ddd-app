@@ -1,4 +1,4 @@
-import Address from "./address";
+import Address from "../value-object/address";
 
 /**
  * Entidade Customer (contexto de negócio e não de persistência)
